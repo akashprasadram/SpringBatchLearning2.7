@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students>
+	<student>
+		<email>rakesh@gmail.com</email>
+		<first_name>Rakesh</first_name>
+		<id>3</id>
+		<lastName>Tiwari</lastName>
+	</student>
+	<student>
+		<email>amit@gmail.com</email>
+		<first_name>Amit</first_name>
+		<id>4</id>
+		<lastName>Dash</lastName>
+	</student>
+	<student>
+		<email>shiba@gmail.com</email>
+		<first_name>Shibarata</first_name>
+		<id>5</id>
+		<lastName>Dash</lastName>
+	</student>
+	<student>
+		<email>vikah@rediff.com</email>
+		<first_name>Vikash</first_name>
+		<id>6</id>
+		<lastName>Kumar</lastName>
+	</student>
+	<student>
+		<email>rajdeep@rediff.com</email>
+		<first_name>Rajdeep</first_name>
+		<id>7</id>
+		<lastName>Kuila</lastName>
+	</student>
+	<student>
+		<email>bikash@gmail.com</email>
+		<first_name>Bikash</first_name>
+		<id>8</id>
+		<lastName>Mohanta</lastName>
+	</student>
+</students>
