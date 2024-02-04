@@ -233,7 +233,8 @@ public class SimpleJob {
 				items.stream().forEach(item -> {
 					if (item.getId() == 5) {
 						System.out.println("Inside JsonFileItemWriter");
-						throw new NullPointerException();
+						System.out.println("Throwing error manually");
+						throw new RuntimeException();
 					}
 				});
 
