@@ -83,8 +83,7 @@ public class SimpleJob {
 	// @Autowired
 	private XmlItemWriter xmlItemWriter;
 
-	// @Autowired
-	private JdbcItemWriter jdbcItemWriter;
+
 
 	@Autowired
 	private StudentService studentService;
@@ -107,10 +106,12 @@ public class SimpleJob {
 	@Autowired
 	private SkipListenerImpl skipListenerImpl;
 
-	/*
-	 * @Autowired private DataSource datasource;
-	 */
-
+	@Primary
+	@Bean
+	@ConfigurationProperties(prefix = "spring.datasource")
+	DataSource datasource() {
+		return DataSourceBuilder.create().build();
+	}
 	
 
 	@Bean
@@ -266,8 +267,8 @@ public class SimpleJob {
 		JsonItemReader<StudentJson> jsonItemReader = new JsonItemReader<>();
 		jsonItemReader.setResource(fileSystemResource);
 		jsonItemReader.setJsonObjectReader(new JacksonJsonObjectReader<>(StudentJson.class));
-		jsonItemReader.setMaxItemCount(8);
-		jsonItemReader.setCurrentItemCount(2);
+		//jsonItemReader.setMaxItemCount(8);
+		//jsonItemReader.setCurrentItemCount(2);
 		return jsonItemReader;
 	}
 
