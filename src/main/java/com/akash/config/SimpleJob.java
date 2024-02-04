@@ -110,7 +110,12 @@ public class SimpleJob {
 	/*
 	 * @Autowired private DataSource datasource;
 	 */
-
+	@Primary
+	@Bean
+	@ConfigurationProperties(prefix = "spring.datasource")
+	DataSource datasource() {
+		return DataSourceBuilder.create().build();
+	}
 	
 
 	@Bean
