@@ -224,9 +224,25 @@ public class SimpleJob {
 
 	@Bean
 	JsonFileItemWriter<StudentJson> jsonFileItemWriter1() {
-		return new JsonFileItemWriter<>(
-				new FileSystemResource(new File("D:\\Spring\\SpringBatch Udemy\\CourceMine\\spring-batch-demo\\outputFiles\\students.json")),
-				new JacksonJsonObjectMarshaller<StudentJson>());
+		JsonFileItemWriter<StudentJson> jsonFileItemWriter = new JsonFileItemWriter<>(
+				new FileSystemResource(new File(
+						"D:\\Spring\\SpringBatch Udemy\\CourceMine\\spring-batch-demo\\outputFiles\\students.json")),
+				new JacksonJsonObjectMarshaller<StudentJson>()) {
+			@Override
+			public String doWrite(List<? extends StudentJson> items) {
+				items.stream().forEach(item -> {
+					if (item.getId() == 5) {
+						System.out.println("Inside JsonFileItemWriter");
+						System.out.println("Throwing error manually");
+						throw new RuntimeException();
+					}
+				});
+
+				return super.doWrite(items);
+			}
+		};
+
+		return jsonFileItemWriter;
 	}
 
 	@Bean
